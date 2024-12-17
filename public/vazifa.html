@@ -1,0 +1,97 @@
+<style>
+    /* Умумии барои сабки форма */
+#update-vazifa-form {
+    width: 300px;  /* Андозаи форма */
+    margin: 20px auto;  /* Марҷини автоматикӣ барои марказ кардани форма */
+    padding: 20px;
+    border: 1px solid #ddd;  /* Сарҳади майдони форма */
+    border-radius: 8px;  /* Кураман кардани кунҷҳои сарҳад */
+    background-color: #f9f9f9;  /* Ранги пасзаминаи форма */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  /* Сеҳаи сояи сабук */
+}
+
+/* Сабки барои унвонҳо */
+#update-vazifa-form label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;  /* Ранги матн */
+    margin-bottom: 8px;
+    display: block;  /* Ҳангоми гузоштани надавондӣ барои унвон */
+}
+
+/* Сабки барои майдонҳои воридкунӣ */
+#update-vazifa-form input {
+    width: 100%;  /* Андозаи пурра */
+    padding: 10px;
+    margin-bottom: 15px;  /* Марҷини поён барои фосилаи байни элементҳо */
+    border: 1px solid #ccc;  /* Сарҳади майдон */
+    border-radius: 4px;  /* Кураман кардани кунҷҳои майдон */
+    box-sizing: border-box;  /* Баррасии кунҷҳои сарҳад */
+    font-size: 14px;
+}
+
+/* Сабки барои тугмаи фиристодан */
+#update-vazifa-form button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #4CAF50;  /* Ранги сабз */
+    color: white;
+    border: none;
+    border-radius: 4px;  /* Кураман кардани кунҷҳои тугма */
+    cursor: pointer;  /* Дар ишора кардани муши курсор, тугма ҳамчун интерактивӣ нишон дода мешавад */
+    transition: background-color 0.3s;  /* Муҳлати гузариш барои тағйироти ранг */
+}
+
+/* Ҳангоми гузоштани мушро бар тугма */
+#update-vazifa-form button:hover {
+    background-color: #45a049;  /* Тағйири ранг дар ҳолати hover */
+}
+
+/* Сабки барои хатогиҳо ё паёмҳо */
+.alert {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+</style>
+<form id="update-vazifa-form">
+    <label for="id">ID Сотрудник:</label>
+    <input type="text" id="id" name="id" required><br>
+
+    <label for="vazifa">Номи Вазифа:</label>
+    <input type="text" id="vazifa" name="vazifa" required><br>
+
+    <button type="submit">Навсозии Вазифа</button>
+</form>
+
+<script>
+    document.getElementById('update-vazifa-form').addEventListener('submit', function(event) {
+        event.preventDefault();  // Пешгирӣ аз фиристодани форма
+
+        const id = document.getElementById('id').value;
+        const vazifa = document.getElementById('vazifa').value;
+
+        fetch('/update-employee-vazifa', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `id=${id}&vazifa=${vazifa}`
+        })
+        .then(response => {
+            if (response.ok) {
+                window.location.href = '/welcome';  // Пас аз муваффақияти навсозӣ, ба саҳифаи welcome бурда мешавад
+            } else {
+                return response.text();
+            }
+        })
+        .then(data => {
+            if (data) {
+                alert(data);  // Агар хато бошад, паём нишон дода мешавад
+            }
+        })
+        .catch(error => alert('Хатогӣ дар сервер: ' + error.message));
+    });
+</script>

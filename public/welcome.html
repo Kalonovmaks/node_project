@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/welcome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav>
+            <ul>
+                <li><a href=""><i class="fas fa-home"></i> </a></li>
+                <li><a href="#"><i id="openFormButton" class="fa-solid fa-circle-plus"></i></a></li>
+                <li><a id="show-employees"  href="#"> <i class="fa-solid fa-users"></i></a></li>
+                <li><a href="javascript:void(0);" id="dropdownIcon"><i class="fas fa-file"></i></a></li>
+                <li><a  href=""><i class="fas fa-bell"></i> </a></li>
+                <li><a  href=""><i class="fas fa-filter"></i></a></li>
+                <li><div class="search-box">
+                    <input type="text" placeholder="Поиск">
+                    <i class="fas fa-search"></i>
+                </div></li>            
+            </ul>
+        <h3 style="color: black;"><span id="welcome-message"></span>  <i class="fas fa-sign-out-alt"></i></h3>
+        </nav>
+    </div> 
+    <div class="mm"  id="employees-container"></div>
+    
+    <div class="form-container" id="formContainer">
+        <form action="/add-employee" id="employee-form" method="POST">
+            <label for="name">Ном:</label>
+        <input type="text" id="name" name="name" required><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+        
+        <label for="tell">Телефон:</label>
+        <input type="text" id="tell" name="tell" required><br>
+        
+        <label for="adress">Суроға:</label>
+        <input type="text" id="adress" name="adress" required><br>
+        
+        <label for="vazifa">Вазифа:</label>
+        <input type="text" id="vazifa" name="vazifa" required><br>
+        
+        <button type="submit">Илова кардан</button>
+        </form>
+    </div>
+    
+    <div class="dropdown-container" id="dropdownContainer"> 
+        <label for="documentType">Интихоби Документ:</label><br>
+         <select id="documentType"> 
+            <option value="passport">Паспорт</option>
+            <option value="diploma">Диплом</option> 
+            <option value="other">Документҳои дигар</option> 
+         </select> </div> 
+        <div class="form-container" id="passportForm"> 
+            <form> <label for="passportNumber">Номери Паспорт:</label>
+                <input type="text" id="passportNumber" name="passportNumber" required><br><br> 
+                <label for="passportImage">Сурати Паспорт:</label> 
+                <input type="file" id="passportImage" name="passportImage" required><br><br> 
+                <input type="submit" value="Ирсол"> 
+            </form> </div> 
+        <div class="form-container" id="diplomaForm"> 
+                <form> <label for="diplomaNumber">Номери Диплом:</label> 
+                    <input type="text" id="diplomaNumber" name="diplomaNumber" required><br><br>
+                    <label for="diplomaImage">Сурати Диплом:</label> 
+                    <input type="file" id="diplomaImage" name="diplomaImage" required><br><br>
+                    <input type="submit" value="Ирсол"> 
+                </form> </div> 
+        <div class="form-container" id="otherForm">
+             <form> <label for="otherDoc">Документҳои дигар:</label> 
+                <textarea id="otherDoc" name="otherDoc" required></textarea><br><br>
+                 <label for="otherDocImage">Сурати Документ:</label> 
+                 <input type="file" id="otherDocImage" name="otherDocImage" required><br><br> 
+                 <input type="submit" value="Ирсол"> 
+            </form>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>

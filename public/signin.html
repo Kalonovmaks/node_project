@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход в систему</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        .form {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 350px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a1aff;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .inp1, .inp2 {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .password-container input {
+            width: calc(100% - 20px);
+            padding-right: 40px;
+        }
+
+        .icon {
+            position: absolute;
+            top: 30%;
+            right: 30px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 18px;
+            color: gray;
+        }
+
+        .btn {
+            background-color: #1a1aff;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .btn:hover {
+            background-color: #0000cc;
+        }
+
+        .mm {
+            text-align: center;
+        }
+
+        .mm a {
+            color: #1a1aff;
+            text-decoration: none;
+        }
+
+        .mm a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <h1>Вход в систему</h1>
+        <form action="/login" method="post">
+            <label for="email">Email:</label>
+            <input required class="inp1" type="email" name="email" id="email">
+            
+            <label for="password">Password:</label>
+            <div class="password-container">
+                <input required class="inp2" type="password" name="pass" id="password">
+                <span class="icon" onclick="togglePassword()">👁️</span>
+            </div>
+            
+            <input class="btn" type="submit" value="Вход">
+            
+            <p class="mm">Нет аккаунта? <a href="autorization.html">Зарегистрироваться</a></p>
+        </form>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const icon = document.querySelector('.icon');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.textContent = '🙈'; // Пинҳон кардани рамз
+            } else {
+                passwordInput.type = 'password';
+                icon.textContent = '👁️'; // Нишон додани рамз
+            }
+        }
+    </script>
+</body>
+</html>

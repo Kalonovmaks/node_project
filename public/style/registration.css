@@ -1,0 +1,68 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form{
+    border: 1px solid rgb(235, 233, 233);
+    width: 500px;
+    box-shadow: 0 0 8px gray;
+    padding: 20px;
+}
+.form h1{
+    text-align: center;
+    color: blue;
+}
+.form input{
+    padding: 5px;
+    border: 1px solid rgb(243, 238, 238);
+    outline: none;
+    width: 300px ;
+}
+.form label{
+    margin-left: 0px;
+    font-size: 20px;
+}
+.inp1{
+    margin-left: 115px;
+}
+.inp2{
+    margin-left: 87px;
+}
+.inp3{
+    margin-left: 13px;
+}
+.form .btn{
+    width: 480px;
+    font-size: 20px;
+    color: white;
+    border-radius: 5px;
+    background-color: rgb(71, 71, 143);
+}
+.index{
+    background-color: rgb(99, 99, 185);
+    
+}
+.but a{
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-bottom: 10px;
+    padding-right: 25px;
+    background-color: rgb(132, 132, 226);
+    border-radius: 50px;
+    color: aliceblue;
+    font-family: 'Times New Roman', Times, serif;
+    border: 2px solid wheat;
+}
+.but h1{
+    font-size: 50px;
+    color: aliceblue;
+}
+.mm{
+    margin-left: 25%;
+}
